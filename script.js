@@ -21,12 +21,9 @@ function createChart(data){
         scale_x = null,
         scale_y = null;
 
-    data.map(d => salesPerState[d.State] = salesPerState[d.State] ? (salesPerState[d.State] + d.Sales) : d.Sales);
+    data.forEach(d => salesPerState[d.State] = salesPerState[d.State] ? (salesPerState[d.State] + d.Sales) : d.Sales);
     states = Object.keys(salesPerState);
-    uoSales = [];
     states.forEach(s => uoSales.push(salesPerState[s]));
-
-    //console.log(data, states, salesPerState, uoSales);
 
     // d3 selection for svg
     svg = d3.select('.chart--container')
