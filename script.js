@@ -51,6 +51,7 @@ function createChart(data){
         .append('rect')
         .attr('x', state => scale_x(state))
         .attr('y', state => scale_y(salesPerState[state]))
+        .attr('fill', '#00ff00')
         .attr('height', state => height - scale_y(salesPerState[state]))
         .attr('width', scale_x.bandwidth());
 
